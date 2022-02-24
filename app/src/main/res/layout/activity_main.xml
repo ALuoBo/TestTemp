@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lifwear.testtemp.PageViewModel" />
+
+        <variable
+            name="clicker"
+            type="com.lifwear.testtemp.MainActivity.Clicker" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_mac"
+            android:layout_width="0dp"
+            android:textSize="12sp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/appCompatButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:onClick="@{()->clicker.changeConnectState(vm.connectStatus,etMac.getText().toString())}"
+            android:text="@{vm.connectStatus?`断开连接`:`连接`}"
+            app:layout_constraintBottom_toBottomOf="@+id/et_mac"
+            app:layout_constraintEnd_toStartOf="@+id/bt_search_db_data"
+            app:layout_constraintStart_toEndOf="@+id/et_mac"
+            app:layout_constraintTop_toTopOf="@+id/et_mac" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_search_db_data"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{()->clicker.getTempFormDB(etMac.getText().toString())}"
+            android:text="db数据"
+            app:layout_constraintBottom_toBottomOf="@+id/et_mac"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton"
+            app:layout_constraintTop_toTopOf="@+id/et_mac" />
+
+        <TextView
+            android:id="@+id/tv_temp_aim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="目标温度"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temp_chart" />
+
+        <TextView
+            android:id="@+id/tv_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:text="环境温度"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_temp_aim"
+            app:layout_constraintTop_toTopOf="@+id/tv_temp_aim" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/temp_chart"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_mac" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_temp_data"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temp_aim"
+            tools:listitem="@layout/item_temp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    ext {
+        lifecycle_version = "2.3.1"
+        dialogx_version ="0.0.44.beta7"
+        nav_version = "2.4.0-rc01"
+        retrofitVersion = '2.9.0'
+        scan_kit_version = "2.0.0.300"
+        okHttpLoggingInterceptorVersion = '4.9.0'
+        BaseRecyclerViewAdapterHelperVersion = '3.0.7'
+        room_version = "2.4.0"
+        lottieVersion = '4.2.0'
+        lifecycle_version = "2.3.1"
+        XXPermissions = "13.2"
+    }
+
+
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        mavenCentral()
+        google()
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

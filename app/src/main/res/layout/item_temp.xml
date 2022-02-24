@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="m"
+            type="com.lifwear.testtemp.TempData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/temp_environment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{m.environmentTemp}"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/temp_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="36.5" />
+
+        <TextView
+            android:id="@+id/temp_target"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#02955A"
+            android:text="@{m.targetTemp}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/temp_environment"
+            app:layout_constraintEnd_toStartOf="@+id/temp_timeStamp"
+            app:layout_constraintStart_toEndOf="@id/temp_environment"
+            app:layout_constraintTop_toTopOf="@+id/temp_environment"
+            tools:text="36.5" />
+
+        <TextView
+            android:id="@+id/temp_timeStamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#02955A"
+            android:text="@{m.timestamp}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/temp_environment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/temp_target"
+            app:layout_constraintTop_toTopOf="@+id/temp_environment"
+            tools:text="2020-2020" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
