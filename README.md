@@ -10,4 +10,4 @@ This project is develop for tester , I think the bt moudle is useful to learn
 🤣 Sorry , you can't user it ,because you need the special ble device to connnect  and got the data from that !
 
 ### What's architecture ?
-😁 The oldest -- MVC / But use kotlin (some)
+😁 The oldest -- MVC / But use kotlin (some) , The important is the ble 
